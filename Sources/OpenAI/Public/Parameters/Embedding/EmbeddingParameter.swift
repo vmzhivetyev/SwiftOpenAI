@@ -24,6 +24,8 @@ public struct EmbeddingParameter: Encodable {
    
    public enum Model: String {
       case textEmbeddingAda002 = "text-embedding-ada-002"
+      case textEmbedding3Small = "text-embedding-3-small"
+      case textEmbedding3Large = "text-embedding-3-large"
    }
    
    enum CodingKeys: String, CodingKey {
