@@ -24,6 +24,7 @@ public enum Model {
    ///
    case gpt4o // Points to gpt-4o-2024-05-13
    case gpt4o20240513 // 128k context window with training data up to Oct 2023
+    case gpt4o20240806 // supports 'response_format' of type 'json_schema'
    /// The most affordable and intelligent small model for fast, lightweight tasks. GPT-4o mini is cheaper and more capable than GPT-3.5 Turbo. Currently points to gpt-4o-mini-2024-07-18.
    case gpt4omini
 
@@ -61,6 +62,7 @@ public enum Model {
    public var value: String {
       switch self {
       case .gpt4o: return "gpt-4o"
+      case .gpt4o20240806: return "gpt-4o-2024-08-06"
       case .gpt4o20240513: return "gpt-4o-2024-05-13"
       case .gpt4omini: return "gpt-4o-mini"
       case .gpt35Turbo: return "gpt-3.5-turbo"

@@ -26,11 +26,11 @@ struct DefaultOpenAIService: OpenAIService {
       apiKey: String,
       organizationID: String? = nil,
       baseURL: String? = nil,
-      configuration: URLSessionConfiguration = .default,
+      urlSession: URLSession = .shared,
       decoder: JSONDecoder = .init(),
       debugEnabled: Bool)
    {
-      self.session = URLSession(configuration: configuration)
+      self.session = urlSession
       self.decoder = decoder
       self.apiKey = .bearer(apiKey)
       self.organizationID = organizationID
