@@ -64,9 +64,11 @@ extension Endpoint {
          }
       }
       request.httpMethod = method.rawValue
-      if let params {
-         request.httpBody = try JSONEncoder().encode(params)
-      }
+       if let params {
+           let encoder = JSONEncoder()
+           encoder.outputFormatting = .sortedKeys
+           request.httpBody = try encoder.encode(params)
+       }
       return request
    }
    

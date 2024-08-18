@@ -46,6 +46,12 @@ public enum ResponseFormat: Codable {
         }
         
         public func encode(to encoder: any Encoder) throws {
+            if let jsonEncoder = encoder as? JSONEncoder {
+                if !jsonEncoder.outputFormatting.contains(.sortedKeys) {
+                    assertionFailure()
+                    jsonEncoder.outputFormatting = jsonEncoder.outputFormatting.union(.sortedKeys)
+                }
+            }
             var container = encoder.container(keyedBy: JSONSchema.CodingKeys.self)
             try container.encode(name, forKey: .name)
             try container.encode(schema, forKey: .schema)
