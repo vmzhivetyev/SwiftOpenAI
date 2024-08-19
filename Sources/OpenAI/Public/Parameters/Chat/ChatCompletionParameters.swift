@@ -173,6 +173,19 @@ public struct ChatCompletionParameters: Encodable {
             }
          }
       }
+       
+       public var predefinedRole: Role? {
+           Role(rawValue: role)
+       }
+       
+       public var contentText: String? {
+           switch content {
+           case .text(let string):
+               return string
+           case .contentArray(let array):
+               return nil
+           }
+       }
       
       public enum Role: String {
          case system // content, role
